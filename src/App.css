@@ -1,7 +1,16 @@
+.App.dark {
+  background-color: #000;
+  color: #fff;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   padding: 2em;
+}
+
+.dark-button {
+  cursor: pointer;
 }
 
 .countries {
