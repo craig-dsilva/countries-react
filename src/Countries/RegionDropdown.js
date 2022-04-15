@@ -2,7 +2,7 @@ import React from "react";
 
 const RegionDropdown = (props) => {
   return (
-    <select onChange={props.handleSelect}>
+    <select onChange={props.handleSelect} className="region-dropdown">
       <option>Filter by Region</option>
       <option>Africa</option>
       <option>Americas</option>

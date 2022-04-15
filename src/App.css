@@ -13,17 +13,33 @@
   cursor: pointer;
 }
 
-.countries {
-  width: 60%;
-  margin: auto;
+.main {
+  margin: 0 2em;
 }
 
-.country {
-  margin-bottom: 5rem;
+.country-search {
+  width: 100%;
+  padding: 1em 0;
+  margin-bottom: 1.5em;
+  display: block;
+}
+
+.region-dropdown {
+  padding: 1em 0;
+  width: 40%;
+}
+
+.country,
+.country-details {
+  border-radius: 1.2%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 2em;
+}
+
+.info-container {
   padding: 2em;
 }
 
 .flag {
-  width: 47vw;
+  width: 100%;
 }

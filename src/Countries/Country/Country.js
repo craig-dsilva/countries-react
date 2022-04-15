@@ -2,18 +2,21 @@ import React from "react";
 
 const Country = (props) => {
   return (
-    <div className="country">
+    <div className="country" onClick={props.showCountryDetail}>
       <img className="flag" src={props.flag} alt={props.name} />
-      <h3>{props.name}</h3>
-      <p>
-        <b>Population:</b> {props.population}
-      </p>
-      <p>
-        <b>Region:</b> {props.region}
-      </p>
-      <p>
-        <b>Capital:</b> {props.capital}
-      </p>
+      <div className="info-container">
+        <h3>{props.name}</h3>
+        <br />
+        <p>
+          <b>Population:</b> {props.population.toLocaleString("en-GB")}
+        </p>
+        <p>
+          <b>Region:</b> {props.region}
+        </p>
+        <p>
+          <b>Capital:</b> {props.capital}
+        </p>
+      </div>
     </div>
   );
 };

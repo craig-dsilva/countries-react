@@ -16,6 +16,7 @@ const Countries = (props) => {
             population={country.population}
             region={country.region}
             capital={country.capital}
+            showCountryDetail={() => props.handleCountryDetails(index)}
           />
         );
       })}
