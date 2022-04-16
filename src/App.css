@@ -1,6 +1,7 @@
 .App.dark {
-  background-color: #000;
-  color: #fff;
+  background-color: hsl(207, 26%, 17%);
+  color: hsl(0, 0%, 100%);
+  padding-bottom: 6em;
 }
 
 .header {
@@ -29,9 +30,14 @@
   width: 40%;
 }
 
+.countries,
+.country-details {
+  margin-top: 5em;
+}
+
 .country,
 .country-details {
-  border-radius: 1.2%;
+  border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-bottom: 2em;
 }
@@ -42,4 +48,48 @@
 
 .flag {
   width: 100%;
+  height: 25vh;
+  border-radius: 5px 5px 0 0;
+}
+
+@media screen and (min-width: 600px) {
+  .main {
+    margin: 0 2em;
+  }
+
+  .country-search {
+    width: 25%;
+    display: inline;
+  }
+
+  .region-dropdown {
+    width: 15%;
+    float: right;
+  }
+
+  .countries {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 3em;
+  }
+
+  .country {
+    width: 20vw;
+  }
+
+  .flag {
+    height: 20vh;
+    width: 100%;
+  }
+
+  .country-details {
+    display: flex;
+    box-shadow: none;
+  }
+
+  .country-details .flag {
+    width: 50vw;
+    height: 50vh;
+    margin-right: 5em;
+  }
 }

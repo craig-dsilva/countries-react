@@ -64,7 +64,7 @@ function App() {
     : (countriesArr = regionalCountries);
 
   return (
-    <div className={`App ${isDarkMode ? "dark" : "light"}`}>
+    <div className={`App ${isDarkMode ? "dark" : ""}`}>
       <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
       {selectedCountryId >= 0 && allCountries.length > 0 ? (
         <main className="main">
@@ -87,6 +87,7 @@ function App() {
             type="text"
             value={searchQuery}
             onChange={handleSearch}
+            placeholder=" Search for a country"
             className="country-search"
           />
           <RegionDropdown handleSelect={handleSelect} />
