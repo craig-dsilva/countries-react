@@ -1,5 +1,6 @@
 import React from "react";
 
+// Reusable render
 const Info = ({ infoType, value }) => {
   return (
     <p>

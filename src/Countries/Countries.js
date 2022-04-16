@@ -3,6 +3,7 @@ import React from "react";
 import Country from "./Country/Country";
 
 const Countries = (props) => {
+  // Sorts the country list in alphabetical order
   props.countryList.sort((a, b) => a.name.common.localeCompare(b.name.common));
 
   return (

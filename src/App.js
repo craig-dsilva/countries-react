@@ -8,14 +8,14 @@ import "./App.css";
 import CountryDetails from "./CountryDetails";
 
 function App() {
-  const [allCountries, setAllCountries] = useState([]);
-  const [regionalCountries, setRegionalCountries] = useState([]);
-  const [filteredCountries, setFilteredCountries] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  const [selectedCountryId, setSelectedCountryId] = useState();
+  const [allCountries, setAllCountries] = useState([]); // Stores all countries from API
+  const [regionalCountries, setRegionalCountries] = useState([]); // Filters counties by region
+  const [filteredCountries, setFilteredCountries] = useState([]); // Filters countries according to the name from allCountries or regionalCountries
+  const [searchQuery, setSearchQuery] = useState(""); // Search input
+  const [isDarkMode, setIsDarkMode] = useState(false); // Dark mode
+  const [selectedCountryId, setSelectedCountryId] = useState(); // Array index
 
-  const randomCountryId = Math.round(Math.random() * 250);
+  const randomCountryId = Math.round(Math.random() * 250); // Random country id
 
   let countriesArr;
 
@@ -29,6 +29,7 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
+  // Handles the region dropdown
   const handleSelect = (event) => {
     const value = event.target.value;
     setFilteredCountries([]);
@@ -39,6 +40,7 @@ function App() {
     );
   };
 
+  // Handles the search input
   const handleSearch = (event) => {
     const value = event.target.value;
     setSearchQuery(value);
@@ -51,14 +53,17 @@ function App() {
     );
   };
 
+  // Display more info when a country is clicked
   const showCountryDetails = (countryId) => {
     setSelectedCountryId(countryId);
   };
 
+  // Toggles dark mode
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
 
+  // This decides which state should be used to pass data to JSX and it's children
   filteredCountries.length > 0
     ? (countriesArr = filteredCountries)
     : (countriesArr = regionalCountries);
@@ -66,10 +71,11 @@ function App() {
   return (
     <div className={`App ${isDarkMode ? "dark" : ""}`}>
       <Header toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode} />
+      {/* If the array is not empty and country id is specified a single country's details are rendered */}
       {selectedCountryId >= 0 && allCountries.length > 0 ? (
         <main className="main">
-          <p onClick={() => showCountryDetails(undefined)}>Back</p>
-
+          <p onClick={() => showCountryDetails(undefined)}>Back</p>{" "}
+          {/* This sets the country id to undefined which in turn renders all the countries */}
           <CountryDetails
             flag={countriesArr[selectedCountryId].flags.png}
             name={countriesArr[selectedCountryId].name.common}
@@ -91,7 +97,8 @@ function App() {
             className="country-search"
           />
           <RegionDropdown handleSelect={handleSelect} />
-          <p onClick={() => showCountryDetails(randomCountryId)}>Random</p>
+          <p onClick={() => showCountryDetails(randomCountryId)}>Random</p>{" "}
+          {/* Is used to show details for a random country */}
           <Countries
             countryList={countriesArr}
             handleCountryDetails={showCountryDetails}
